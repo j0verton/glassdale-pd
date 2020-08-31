@@ -1,0 +1,15 @@
+section {
+    border: black dotted 2px;
+    margin: 10px;
+    padding: 5px
+}
+.criminalsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.officersContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+}
