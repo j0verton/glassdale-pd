@@ -5,7 +5,6 @@ export const OfficerList = () => {
     getOfficers()
     .then(()=> {
         const officerArray = useOfficers();
-        console.log("officerArray", officerArray);
         addOfficersToDOM(officerArray);
     })
 }
@@ -18,8 +17,4 @@ const addOfficersToDOM = (anOfficerArray) => {
     })
     
     domElement.innerHTML = HTMLArray.join('')
-    console.log(HTMLArray, 'html')
-
-
-
 }

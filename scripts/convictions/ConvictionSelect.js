@@ -32,7 +32,7 @@ export const ConvictionSelect = () => {
                 <select class="dropdown" id="crimeSelect">
                     <option value="0">Please select a crime...</option>
                     ${
-                        convictons.map(
+                        convictions.map(
                             convictionObj => {
                                 const conviction = convictionObj.name;
                                 return conviction;
