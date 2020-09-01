@@ -1,6 +1,6 @@
 let criminals = [];
 
-export const criminalArrayCopier = () => {
+export const useCriminals = () => {
     return criminals.slice()
 }
 

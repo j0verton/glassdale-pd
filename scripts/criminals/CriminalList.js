@@ -1,22 +1,62 @@
 import { CriminalHTML } from "./CriminalHTML.js"
-import { criminalArrayCopier, getCriminals } from "./CriminalProvider.js"
+import { getCriminals, useCriminals} from "./CriminalProvider.js"
 
-export const CriminalList = () => {
-    getCriminals()
-    .then(() => {
-        const criminalArray = criminalArrayCopier();
-        addCriminalstoDOM(criminalArray)
+const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector(".criminalsContainer")
+// Listen for the custom event you dispatched in ConvictionSelect
+let appStateCriminals
+eventHub.addEventListener('crimeChosen', event => {
+    // You remembered to add the id of the crime to the event detail, right?
+    if ("crimeId" in event.detail) {
+        /*
+            Filter the criminals application state down to the people that committed the crime
+        */
+
+        const matchingCriminals = appStateCriminals.filter(criminal => {
+            return criminal.conviction === event.detail.crimeId
+        })
+
+        /*
+            Then invoke render() and pass the filtered collection as
+            an argument
+        */
+       render(matchingCriminals)
+    }
+})
+
+eventHub.addEventListener("officerSelected", event => {
+    // How can you access the officer name that was selected by the user?
+    const officerName = event.detail.officer
+    
+
+    // How can you get the criminals that were arrested by that officer?
+    const criminals = useCriminals()
+    const officersCriminals = criminals.filter(criminal=> {
+        if (criminal.arrestingOfficer === officerName) {
+                    return true
+                
+            }
+        })
+        console.log(officersCriminals)
+        render(officersCriminals)
     })
 
-}
 
-const addCriminalstoDOM = (listofCriminals) => {
+const render = (criminalObj) => {
+
     let listTarget = document.querySelector(".criminalsContainer");
-    let criminalHTMLArray = listofCriminals.map(singleCriminal => {
+    let criminalHTMLArray = criminalObj.map(singleCriminal => {
         return CriminalHTML(singleCriminal)
     })
-    
-    
     listTarget.innerHTML = criminalHTMLArray.join('');
+}
 
+// Render ALL criminals initally
+export const CriminalList = () => {
+    getCriminals()
+        .then(() => {
+            appStateCriminals = useCriminals()
+            console.log("criminals in get",appStateCriminals)
+            render(appStateCriminals)
+        })
 }
