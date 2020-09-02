@@ -4,7 +4,6 @@ import { getCriminals, useCriminals} from "./CriminalProvider.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".criminalsContainer")
 // Listen for the custom event you dispatched in ConvictionSelect
-let appStateCriminals
 eventHub.addEventListener('crimeChosen', event => {
     // You remembered to add the id of the crime to the event detail, right?
     if (event.detail.crimeId !== '0') {
@@ -12,7 +11,7 @@ eventHub.addEventListener('crimeChosen', event => {
             Filter the criminals application state down to the people that committed the crime
         */
 
-        const matchingCriminals = appStateCriminals.filter(criminal => {
+        const matchingCriminals = useCriminals().filter(criminal => {
             return criminal.conviction === event.detail.crimeId
         })
 
@@ -22,7 +21,7 @@ eventHub.addEventListener('crimeChosen', event => {
         */
        render(matchingCriminals)
     } else {
-        render(appStateCriminals);
+        render(useCriminals());
     }
 })
 
@@ -57,7 +56,7 @@ const render = (criminalObj) => {
 export const CriminalList = () => {
     getCriminals()
         .then(() => {
-            appStateCriminals = useCriminals()
+            const appStateCriminals = useCriminals()
             render(appStateCriminals)
         })
 }
