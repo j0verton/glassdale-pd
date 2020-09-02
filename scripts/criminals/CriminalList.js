@@ -7,7 +7,7 @@ const contentTarget = document.querySelector(".criminalsContainer")
 let appStateCriminals
 eventHub.addEventListener('crimeChosen', event => {
     // You remembered to add the id of the crime to the event detail, right?
-    if ("crimeId" in event.detail) {
+    if (event.detail.crimeId !== '0') {
         /*
             Filter the criminals application state down to the people that committed the crime
         */
@@ -21,6 +21,8 @@ eventHub.addEventListener('crimeChosen', event => {
             an argument
         */
        render(matchingCriminals)
+    } else {
+        render(appStateCriminals);
     }
 })
 
@@ -56,7 +58,6 @@ export const CriminalList = () => {
     getCriminals()
         .then(() => {
             appStateCriminals = useCriminals()
-            console.log("criminals in get",appStateCriminals)
             render(appStateCriminals)
         })
 }
