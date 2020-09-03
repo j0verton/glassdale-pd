@@ -28,11 +28,6 @@ render(convictions)
 })
 }
 
-
-
-
-
-
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "officerSelect") {
         // Get the name of the selected officer
