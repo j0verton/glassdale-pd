@@ -1,11 +1,23 @@
 const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
-const render = () => {
+const render = (criminalArray) => {
     contentTarget.innerHTML = `
         <input type="textfield" id="note-text" placeholder="Enter Note">
-        <input type="text" id="subject-name" placeholder="Subject Name">
-        <input type="text" id="note-date" placeholder="Note Date">
+        
+        <select class="dropdown" id="subjectName">
+            <option value="0">Please select an arresting officer...</option>
+            ${
+                criminalArray.map(
+                   criminalObj => {
+                        const name = criminalObj.name;
+                        return `<option>${name}</option>`;
+                    }
+                )
+            }
+        </select>
+    
+        <input type="text" id="note-date" placeholder="${Date.now}" value=`${Date.now}`>
         <button id="saveNote">Save Note</button>
     `
 }
