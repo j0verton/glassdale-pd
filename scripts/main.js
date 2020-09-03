@@ -8,7 +8,7 @@ import { saveNote } from "./notes/NoteProvider.js";
 
 
 // OfficerList();
-NoteForm()
+NoteForm();
 CriminalList();
 ConvictionSelect();
 OfficerSelect();

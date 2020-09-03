@@ -38,7 +38,6 @@ eventHub.addEventListener("officerSelected", event => {
                 
             }
         })
-        console.log(officersCriminals)
         render(officersCriminals)
     })
 

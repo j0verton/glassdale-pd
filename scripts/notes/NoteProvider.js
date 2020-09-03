@@ -42,13 +42,22 @@ export const saveNote = note => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
         // Make a new object representation of a note
-        const newNote = {
-            subject: `${document.getElementById("subject-name").value}`,
-            date: `${document.getElementById("note-date").value}`,
-            text: `${document.getElementById("note-text").value}`
-        }
-        console.log(newNote)
-        // Change API state and application state
-        saveNote(newNote)
+        const noteContent = document.querySelector("#note-text")
+		const noteSubject = document.querySelector("#subject-name")
+        if(noteSubject.value !== "0") {
+            if (noteContent.value) {
+                const newNote = {
+                    subject: noteSubject.value,
+                    date: Date.now(),
+                    text: noteContent.value
+                }
+                saveNote(newNote)
+            } else {
+                window.alert("Write a Note");
+            }
+        }else {
+			window.alert("Choose a Suspect");
+		}
+
     }
 })

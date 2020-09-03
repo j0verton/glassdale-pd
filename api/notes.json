@@ -23,6 +23,48 @@
       "date": "sept 3",
       "text": "out looking for pizza",
       "id": 4
+    },
+    {
+      "subject": "Michel Stamm",
+      "date": "",
+      "text": "working at the Cheesecake Factory",
+      "id": 5
+    },
+    {
+      "subject": "Taurean Bins",
+      "date": "",
+      "text": "Moved to Reno",
+      "id": 7
+    },
+    {
+      "subject": "Taurean Bins",
+      "date": 1599154550656,
+      "text": "switched his medication",
+      "id": 8
+    },
+    {
+      "subject": "Jennie Koepp",
+      "date": 1599154581377,
+      "text": "got a job",
+      "id": 9
+    },
+    {
+      "subject": "Ubaldo Wisoky",
+      "date": 1599154608935,
+      "text": "working at the car wash",
+      "id": 10
+    },
+    {
+      "subject": "Montana Howe",
+      "date": 1599155032071,
+      "text": "broke his leg on a pogo stick",
+      "id": 11
+    },
+    {
+      "subject": "Clair Romaguera",
+      "date": 1599155330439,
+      "text": "hanging out at the Friend's Bar",
+      "id": 12
     }
   ]
 }
