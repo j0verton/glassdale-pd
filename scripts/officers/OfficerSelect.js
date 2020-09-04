@@ -11,7 +11,7 @@ const render = officersCollection => {
                 officersCollection.map(
                     officerObj => {
                         const name = officerObj.name;
-                        return `<option>${name}</option>`;
+                        return `<option value="${name}">${name}</option>`;
                     }
                 )
             }

@@ -22,10 +22,9 @@ const render = (criminalArray) => {
                 }
             </select>
         </fieldset>
-        <button id="saveNote">Save Note</button>
+        <button type="button" id="saveNote">Save Note</button>
     </form>
     `
-    // const input = document.getElementById("note-date")
 }
 
 

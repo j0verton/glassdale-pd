@@ -1,12 +1,6 @@
-// const eventHub = document.querySelector(".container")
-
-// const clickedMe = eventHub.addEventListener("click", clickEvent => {
-//     console.log(clickEvent)
-// })
-
-// eventHub.dispatchEvent(clickedMe)
-
 const eventHub = document.querySelector(".container")
+
+let notes = []
 
 const dispatchStateChangeEvent = () => {
     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
@@ -14,7 +8,7 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 
-const getNotes = () => {
+export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
@@ -33,8 +27,8 @@ export const saveNote = note => {
         },
         body: JSON.stringify(note)
     })
-    .then(getNotes())
-    .then(dispatchStateChangeEvent())
+    .then(getNotes)
+    .then(dispatchStateChangeEvent)
 }
 
 
@@ -61,3 +55,7 @@ eventHub.addEventListener("click", clickEvent => {
 
     }
 })
+
+export const useNotes = () => {
+    return notes.slice();
+}

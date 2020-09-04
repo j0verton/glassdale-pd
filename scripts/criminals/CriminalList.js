@@ -4,6 +4,7 @@ import { getCriminals, useCriminals} from "./CriminalProvider.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".criminalsContainer")
 // Listen for the custom event you dispatched in ConvictionSelect
+
 eventHub.addEventListener('crimeChosen', event => {
     // You remembered to add the id of the crime to the event detail, right?
     if (event.detail.crimeId !== '0') {
