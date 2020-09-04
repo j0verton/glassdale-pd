@@ -11,7 +11,7 @@ const render = officersCollection => {
                 officersCollection.map(
                     officerObj => {
                         const name = officerObj.name;
-                        return `<option>${name}</option>`;
+                        return `<option value="${name}">${name}</option>`;
                     }
                 )
             }
@@ -27,11 +27,6 @@ const convictions = useOfficers()
 render(convictions)
 })
 }
-
-
-
-
-
 
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "officerSelect") {

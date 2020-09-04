@@ -32,7 +32,7 @@ const render = convictionsCollection => {
                             convictionsCollection.map(
                                 convictionObj => {
                                     const conviction = convictionObj.name;
-                                    return `<option>${conviction}</option>`;
+                                    return `<option value=${conviction}>${conviction}</option>`;
                                 }
                             )
                         }
@@ -48,3 +48,7 @@ export const ConvictionSelect = () => {
             render(convictions)
         })
 }
+
+// eventHub.addEventListener("click", clickEvent => {
+//     console.log(clickEvent)
+// })
