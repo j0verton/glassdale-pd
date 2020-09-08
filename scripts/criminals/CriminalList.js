@@ -40,6 +40,9 @@ eventHub.addEventListener("officerSelected", event => {
             }
         })
         render(officersCriminals)
+
+        // NEED TO add... make list return if selection value =0
+        // .. combine officer and conviction select?
     })
 
 

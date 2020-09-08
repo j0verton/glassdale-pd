@@ -13,3 +13,36 @@ section {
     flex-wrap: wrap;
 
 }
+
+body {
+    display: flex;
+
+}
+
+aside {
+    flex :1;
+    background-color: teal
+}
+main {
+    flex: 4;
+}
+.filters { 
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: space-between;
+
+}
+.filter {
+    padding: 5px;
+    /* flex-basis: 20%; */
+
+}
+.filters__crime {
+    flex:1;
+}
+.filters__incarceration {
+    flex:1;
+}
+.filters__officer {
+    flex:1;
+}

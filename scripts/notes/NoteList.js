@@ -25,3 +25,6 @@ eventHub.addEventListener("noteStateChanged", () => {
     const newNotes = useNotes()
     render(newNotes)
 })
+
+//  TO ADD  -show all notes button
+//          -search notes by subject
