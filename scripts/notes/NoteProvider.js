@@ -59,3 +59,4 @@ eventHub.addEventListener("click", clickEvent => {
 export const useNotes = () => {
     return notes.slice();
 }
+

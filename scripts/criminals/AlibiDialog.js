@@ -10,14 +10,14 @@ eventHub.addEventListener("associatesClicked", event => {
     })
 
     const alibiTarget = document.querySelector(`.alibiDialog--${targetCriminal.id}`);
-    const hTarget = document.getElementById(targetCriminal.id)
+    const hTarget = alibiTarget.querySelector("h4")
     if (alibiTarget.contains(hTarget)){
         alibiTarget.innerHTML = ""
     } else {
     alibiTarget.innerHTML = `${
         targetCriminal.known_associates.map(associate => {
             return `
-                <h4 id="${targetCriminal.id}">${associate.name}</h4>
+                <h4>${associate.name}</h4>
                 <div>${associate.alibi}</div>
             `
         }).join("")
