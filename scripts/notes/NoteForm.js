@@ -6,6 +6,7 @@ const searchTarget = document.querySelector("#note-search")
 
 const renderNoteField = (criminalArray) => {
     contentTarget.innerHTML = `
+    <h2>Notes</h2>
     <form action="">
         <fieldset>
             <input type="textfield" id="note-text" placeholder="Enter Note">
@@ -24,12 +25,16 @@ const renderNoteField = (criminalArray) => {
             </select>
         </fieldset>
         <button type="button" id="Note">Save Note</button>
+        <fieldset id="notes-searchBy" display="none">
+        <select class="dropdown">
+            <option value="0">Search notes by...</option>
+            <option value="1">Subject</option>
+            <option value="0">Date</option> 
+        </select>
+        </fieldset>
+        <button type="button" id="displayNote">Display Notes</button>
     `
 }
-
-
-
-
 
 export const NoteForm = () => {
     getCriminals()
@@ -39,7 +44,6 @@ export const NoteForm = () => {
 }
 
 // input.valueAsDate = new Date()
-
 
 // writing code for filtering the note search drop-down
 // eventHub.addEventListener("change", event => {

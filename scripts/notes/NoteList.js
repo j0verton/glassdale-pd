@@ -14,11 +14,14 @@ export const NoteList = () => {
 }
 
 const render = (notes) => {
-    const criminals = useCriminals()
-    contentTarget.innerHTML = notes.map((note) => {
+    console.log(notes, "notes")
+    let notesHTML = notes.map((note) => {
+        console.log(note, "note")
         return NoteHTML(note)
-    }).join('');
-    
+    })
+    // .join('');
+    console.log(notesHTML, "note html")
+    contentTarget.innerHTML = notesHTML
 }
 
 eventHub.addEventListener("noteStateChanged", () => {	
