@@ -18,7 +18,7 @@ const renderNoteField = (criminalArray) => {
                     criminalArray.map(
                     criminalObj => {
                             const name = criminalObj.name;
-                            return `<option value="${criminalObj.name}">${criminalObj.name}</option>`;
+                            return `<option value="${criminalObj.id}">${criminalObj.name}</option>`;
                         }
                     )
                 }

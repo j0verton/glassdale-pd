@@ -46,7 +46,7 @@ eventHub.addEventListener("click", clickEvent => {
         if (noteSubject.value !== "0") {
             if (noteContent.value) {
                 const newNote = {
-                    subject: noteSubject.value,
+                    subjectId: parseInt(noteSubject.value),
                     date: Date.now(),
                     text: noteContent.value
                 }

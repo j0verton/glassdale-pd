@@ -1,5 +1,5 @@
 import { NoteHTML } from "./Note.js"
-import { useCriminals } from "../criminals/CriminalProvider.js"
+import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
 import { useNotes, getNotes } from "./NoteProvider.js"
 
 const eventHub = document.querySelector(".container")
@@ -8,18 +8,25 @@ const contentTarget = document.querySelector("#notesContainer")
 
 export const NoteList = () => {
     getNotes()
-    .then(useNotes)
-    .then(render)
-
+        .then(getCriminals)
+        .then(() => {
+            const notes = useNotes();
+            const suspects=useCriminals()
+            render(notes, suspects)
+        })
 }
 
-const render = (notes) => {
+const render = (notes, suspects) => {
     console.log(notes, "notes")
     let notesHTML = notes.map((note) => {
+        notes.subjectObj = suspects.find(suspect => {
+            return suspect.id === parseInt(note.suspectId)
+        })
+
         console.log(note, "note")
         return NoteHTML(note)
     })
-    // .join('');
+    .join('');
     console.log(notesHTML, "note html")
     contentTarget.innerHTML = notesHTML
 }
