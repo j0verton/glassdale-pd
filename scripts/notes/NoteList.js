@@ -40,7 +40,6 @@ eventHub.addEventListener("noteStateChanged", () => {
 //          -search notes by subject
 
 
-const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("deleteNote--")) {
