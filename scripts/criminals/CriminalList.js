@@ -56,10 +56,25 @@ const render = (criminalObj) => {
 }
 
 // Render ALL criminals initally
-export const CriminalList = () => {
+document.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "showSuspectsBtn" && clickEvent.target.textContent.includes("Show")){
+    CriminalList()
+    clickEvent.target.textContent = "Hide All Suspects"
+    } else if (clickEvent.target.id === "showSuspectsBtn"){
+        document.querySelector(".criminalsContainer").innerHTML = ""
+        clickEvent.target.textContent = "Show All Suspects"
+    }
+})
+
+const CriminalList = () => {
     getCriminals()
         .then(() => {
             const appStateCriminals = useCriminals()
             render(appStateCriminals)
         })
 }
+
+export const showSuspectsBtn = () => {
+    let html = `<button type="button" id="showSuspectsBtn">Show All Suspects</button>`
+    document.querySelector(".filters__crime").innerHTML += html
+} 

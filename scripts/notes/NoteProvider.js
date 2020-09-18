@@ -17,14 +17,12 @@ export const getNotes = () => {
     return fetch('http://localhost:8088/notes')
         .then(response => response.json())
         .then(parsedNotes => {
-            console.log(parsedNotes, "parsedNotes")
-            let notes = parsedNotes
-            console.log("notes", notes)
+            notes = parsedNotes
+            console.log(notes)
         })
 }
 
 export const saveNote = note => {
-    console.log("note inside save", note)
     return fetch('http://localhost:8088/notes', {
         method: "POST",
         headers: {
@@ -73,13 +71,13 @@ eventHub.addEventListener("click", clickEvent => {
 
 
 eventHub.addEventListener("click", clickEvent => {
-    const noteTargert = document.querySelector("#notesContainer")
+    const noteTarget = document.querySelector("#notesContainer")
     const notesSearchBy =  document.querySelector("#notes-searchBy")
-    console.log(notesSearchBy)
+    // console.log(notesSearchBy)
     // && notesSearchBy.display==="none"
     if (clickEvent.target.id === "displayNote") {
         console.log("click")
-        notesSearchBy.display = ""
+        // notesSearchBy.display = ""
         NoteList()
     } else {
         console.log("misfire")

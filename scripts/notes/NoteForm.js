@@ -24,7 +24,7 @@ const renderNoteField = (criminalArray) => {
                 }
             </select>
         </fieldset>
-        <button type="button" id="Note">Save Note</button>
+        <button type="button" id="saveNote">Save Note</button>
         <fieldset id="notes-searchBy" display="none">
         <select class="dropdown">
             <option value="0">Search notes by...</option>

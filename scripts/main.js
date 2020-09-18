@@ -1,5 +1,5 @@
 import {OfficerList} from "./officers/OfficerList.js"
-import { CriminalList } from "./criminals/CriminalList.js";
+import { showSuspectsBtn } from "./criminals/CriminalList.js";
 import { ConvictionSelect } from "./convictions/ConvictionSelect.js";
 import { getConvictions } from "./convictions/ConvictionProvider.js";
 import { OfficerSelect } from "./officers/OfficerSelect.js";
@@ -11,8 +11,7 @@ import { WitnessList } from "./witness/WitnessList.js";
 
 // OfficerList();
 NoteForm();
-CriminalList();
 ConvictionSelect();
 OfficerSelect();
 // NoteList();
-WitnessList();
+showSuspectsBtn()

@@ -19,3 +19,4 @@ const addWintessesToDOM = (witnessCollection) => {
 
     listTarget.innerHTML = witnessHTML
 }
+

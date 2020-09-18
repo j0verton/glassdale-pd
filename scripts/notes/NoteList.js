@@ -12,23 +12,19 @@ export const NoteList = () => {
         .then(() => {
             const notes = useNotes();
             const suspects=useCriminals()
+            console.log(notes)
             render(notes, suspects)
         })
 }
 
 const render = (notes, suspects) => {
-    console.log(notes, "notes")
-    let notesHTML = notes.map((note) => {
-        notes.subjectObj = suspects.find(suspect => {
-            return suspect.id === parseInt(note.suspectId)
+    contentTarget.innerHTML = notes.map((note) => {
+        note.subjectObj = suspects.find(suspect => {
+            return suspect.id === note.suspectId
         })
-
-        console.log(note, "note")
+        console.log(note)
         return NoteHTML(note)
-    })
-    .join('');
-    console.log(notesHTML, "note html")
-    contentTarget.innerHTML = notesHTML
+    }).join('');
 }
 
 eventHub.addEventListener("noteStateChanged", () => {	
