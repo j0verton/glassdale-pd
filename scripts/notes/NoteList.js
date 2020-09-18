@@ -1,6 +1,6 @@
 import { NoteHTML } from "./Note.js"
 import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
-import { useNotes, getNotes } from "./NoteProvider.js"
+import { useNotes, getNotes, deleteNote } from "./NoteProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#notesContainer")
@@ -33,8 +33,31 @@ const render = (notes, suspects) => {
 
 eventHub.addEventListener("noteStateChanged", () => {	
     const newNotes = useNotes()
-    render(newNotes)
+    render(newNotes, useCriminals())
 })
 
 //  TO ADD  -show all notes button
 //          -search notes by subject
+
+
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
+
+        /*
+            Invoke the function that performs the delete operation.
+
+            Once the operation is complete you should THEN invoke
+            useNotes() and render the note list again.
+        */
+       deleteNote(id).then(
+           () => {
+               const updatedNotes = useNotes()
+               const criminals = useCriminals()
+               render(updatedNotes, criminals)
+           }
+       )
+    }
+})
