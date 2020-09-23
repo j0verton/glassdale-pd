@@ -47,6 +47,7 @@ export const Criminal = (criminalObject, facilities) => {
                 </ul>
             </div>
             <button id="associates--${criminalObject.id}">Show Associates</button>
+            ${AlibiDialog(criminalObject.id)}
         </div>
     </div>
     `
