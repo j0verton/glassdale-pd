@@ -7,7 +7,6 @@ const contentTarget = document.querySelector("#notesContainer")
 
 
 export const NoteList = () => {
-    debugger
     getNotes()
         .then(getCriminals)
         .then(() => {
@@ -56,5 +55,12 @@ eventHub.addEventListener("click", clickEvent => {
                render(updatedNotes, criminals)
            }
        )
+    }
+})
+
+eventHub.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("editNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
+    
     }
 })

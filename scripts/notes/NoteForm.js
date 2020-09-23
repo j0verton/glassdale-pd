@@ -33,6 +33,7 @@ const renderNoteField = (criminalArray) => {
         </select>
         </fieldset>
         <button type="button" id="displayNote">Display Notes</button>
+        
     `
 }
 
@@ -43,41 +44,10 @@ export const NoteForm = () => {
     })
 }
 
-// input.valueAsDate = new Date()
-
-// writing code for filtering the note search drop-down
-// eventHub.addEventListener("change", event => {
-//     if(event.target.id === "notes-searchBy") {
-//         const customEvent = new CustomEvent("noteSearchChosen", {
-//             detail: {
-
-//             }
-//         })
-
-//     }
-
-// })
-
-// const renderNoteSearch = (criminalArray) => {
-//     const 
-//     if 
-    
-//     searchTarget.innerHTML = `
-
-
-// `
-//ideas - make the notes aside hidden until a display notes button is pressed
-
-/*
+export const NoteEditForm = noteObj => {
+`
+    <input id="noteid--${noteObj.id}" display="hidden>
     <fieldset>
-        <select class="dropdown" id="notes-searchBy">
-            <option value="0">Search notes by...</option>
-            <option value="1">Subject</option>
-            <option value="0">Date</option>
-            
-        </select>
-    </fieldset>
-    <fieldset id="note-search">
-    </fieldset>
-    <button type="button" id="displayNote"> Display Notes</button>
-    </form> */
+        <input type="textfield" id="note-text">${noteObj.text}</input>
+    </fieldset> `
+} 
