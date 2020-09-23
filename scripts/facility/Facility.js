@@ -2,7 +2,6 @@
 
 export const Facility = (facility, criminalObj )=>{
 return ` 
-
     <h2>${facility.facilityName}</h2>
     <p>Security: ${facility.securityLevel}</p>
     <p>Capacity: ${facility.capacity}</p>
@@ -10,8 +9,8 @@ return `
     <ul>
         ${
             criminalObj.map(obj => {
-                return `<li>${obj.fullName}</li>`
-            })
+                return `<li>${obj.name}</li>`
+            }).join("")
         }
     </ul>
 `
