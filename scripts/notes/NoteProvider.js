@@ -43,6 +43,15 @@ export const deleteNote = noteId => {
         .then(dispatchStateChangeEvent)
 }
 
+export const editNote = (note) => {
+    return fetch(`http://localhost:8088/notes/${note.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(note)
+    })
+}
 
 
 // Handle browser-generated click event in component
@@ -80,6 +89,5 @@ eventHub.addEventListener("click", clickEvent => {
         // notesSearchBy.display = ""
         NoteList()
     } else {
-        console.log("misfire")
     }
 })

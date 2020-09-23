@@ -1,6 +1,7 @@
 import { NoteHTML } from "./Note.js"
 import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
 import { useNotes, getNotes, deleteNote } from "./NoteProvider.js"
+import { NoteEditForm } from "./NoteForm.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector("#notesContainer")
@@ -23,7 +24,6 @@ const render = (notes, suspects) => {
         note.subjectObj = suspects.find(suspect => {
             return suspect.id === note.subjectId
         })
-        console.log(note)
         return NoteHTML(note)
     }).join('');
 }
@@ -61,6 +61,12 @@ eventHub.addEventListener("click", clickEvent => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id.startsWith("editNote--")) {
         const [prefix, id] = clickEvent.target.id.split("--")
-    
+        const notes = useNotes()
+        console.log(notes, id)
+        let noteObj = notes.find(note => {
+            console.log(note)
+            return note.id === parseInt(id)
+        })
+        NoteEditForm(noteObj)
     }
 })

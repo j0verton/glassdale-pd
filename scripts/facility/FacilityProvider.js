@@ -18,7 +18,7 @@ export const DisplayFacilitiesButton = () => {
 
 
 document.addEventListener("click", clickEvent => {
-    if (event.target.id === "facilitiesBtn") {
+    if (clickEvent.target.id === "facilitiesBtn") {
         let newCustomEvent = new CustomEvent("facilitiesButtonClicked") 
         eventHub.dispatchEvent(newCustomEvent)
     }
