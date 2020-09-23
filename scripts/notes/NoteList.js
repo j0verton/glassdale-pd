@@ -7,12 +7,14 @@ const contentTarget = document.querySelector("#notesContainer")
 
 
 export const NoteList = () => {
+    debugger
     getNotes()
         .then(getCriminals)
         .then(() => {
             const notes = useNotes();
             const suspects=useCriminals()
             console.log(notes)
+            console.log(suspects)
             render(notes, suspects)
         })
 }
@@ -20,7 +22,7 @@ export const NoteList = () => {
 const render = (notes, suspects) => {
     contentTarget.innerHTML = notes.map((note) => {
         note.subjectObj = suspects.find(suspect => {
-            return suspect.id === note.suspectId
+            return suspect.id === note.subjectId
         })
         console.log(note)
         return NoteHTML(note)
