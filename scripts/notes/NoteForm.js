@@ -45,9 +45,16 @@ export const NoteForm = () => {
 }
 
 export const NoteEditForm = noteObj => {
-`
-    <input id="noteid--${noteObj.id}" display="hidden>
-    <fieldset>
-        <input type="textfield" id="note-text">${noteObj.text}</input>
-    </fieldset> `
+    console.log(noteObj)
+    contentTarget.innerHTML = `
+        <h2>Edit Note</h2>
+        <input id="noteid--${noteObj.id}" display="hidden>
+        <fieldset>
+            <input type="textfield" id="note-text" placeholder="${noteObj.text}" >
+        </fieldset> 
+        <fieldset>
+        <p>Subject: ${noteObj.subjectObj.name}<p>
+        </fieldset>
+        <button type="button" id="saveEditNote">Save Note</button>
+    `
 } 
